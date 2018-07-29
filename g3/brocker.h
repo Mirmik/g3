@@ -16,15 +16,18 @@ namespace g3 {
 	struct subheader {
 		frame_type type;
 
+		uint8_t thm_size;
+
 		union {
+			//PUBLISH
 			struct {
-				uint8_t thm_size;
 				uint16_t dat_size;
 			};
 
+			//SUBSCRIBE
 			struct {
-				uint8_t thm_size;
-				QoS::
+				g1::QoS qos;
+				uint16_t ackquant;
 			};
 		};
 	};
